@@ -1,0 +1,277 @@
+/* Fonte usada */
+@import url("https://fonts.googleapis.com/css?family=Tektur");
+
+/* Definições globais */
+:root {
+  --cbc-color: #000000;
+  --bg-color: #252525;
+  --bg2-color: #101010;
+  --txt-color: #aaaaaa;
+  --highlighted-color: #aa3131;
+  --title-color: #ffffff;
+  --line-height: 10vw;
+  --nav-color: #ffffff;
+}
+
+/* Estilo padrão para todos os elementos */
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Tektur", sans-serif;
+  box-sizing: border-box;
+}
+
+/* Estilo do corpo da página */
+body {
+  background-color: var(--bg-color);
+  background:(rgb(0, 0, 0) 100%);
+  background-repeat:no-repeat;
+  background-attachment:fixed;
+  background-size:cover;
+  display: flex;
+  flex-direction: column;
+  align-items: normal; /* Centraliza o conteúdo verticalmente */
+  min-height: 100vh; /* Define uma altura mínima de 100% da viewport height */
+}
+
+/* Estilo do cabeçalho */
+header {
+  text-align: center;
+  background-color: var(--cbc-color);
+  border-radius: 15px;
+  padding: 4px;
+  width: 100%; /* Ocupa toda a largura disponível */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra sutil */
+  position: fixed;
+  z-index:1;
+}
+
+#firstContent{
+  position:relative;
+  margin-top: 8%;
+  text-align: center;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between; /* Adicionado para alinhar o logo à esquerda e o botão à direita */
+  align-items: center;
+  font-family: system-ui, -apple-system, Helvetica, Arial, sans-serif;
+  background: #000000;
+  height: 8vh;
+  padding: 16px; /* Adicionado espaçamento para o botão ficar afastado da borda */
+
+}
+
+
+
+#theme-toggle {
+  background: transparent;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+
+
+a:hover {
+  opacity: 0.7;
+}
+
+.nav{
+  color: var(--nav-color);
+}
+
+#logo {
+  font-size: 24px;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+}
+
+/* barra menu  */
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-family: system-ui, -apple-system, Helvetica, Arial, sans-serif;
+  background: #1b1b1b;
+  height: 8vh;
+}
+
+#bigConteiner{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+main {
+  background: url("img/bg.jpg") no-repeat center center;
+  background-size: cover;
+  height: 92vh;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+}
+
+.nav-list li {
+  letter-spacing: 3px;
+  margin-left: 32px;
+}
+
+.mobile-menu {
+  display: none;
+  cursor: pointer;
+}
+
+.mobile-menu div {
+  width: 32px;
+  height: 2px;
+  background: #bb2424;
+  margin: 8px;
+  transition: 0.3s;
+}
+
+.nav{
+  color: #ffffff;
+}
+
+@media (max-width: 999px) {
+  body {
+    overflow-x: hidden;
+  }
+  .nav-list {
+    position: absolute;
+    top: 8vh;
+    right: 0;
+    width: 50vw;
+    height: 92vh;
+    background: #23232e;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in;
+  }
+  .nav-list li {
+    margin-left: 0;
+    opacity: 0;
+  }
+  .mobile-menu {
+    display: block;
+  }
+  #bigConteiner{
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.nav-list.active {
+  transform: translateX(0);
+}
+
+@keyframes navLinkFade {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.mobile-menu.active .line1 {
+  transform: rotate(-45deg) translate(-8px, 8px);
+}
+
+.mobile-menu.active .line2 {
+  opacity: 0;
+}
+
+.mobile-menu.active .line3 {
+  transform: rotate(45deg) translate(-5px, -7px);
+}
+/* Estilo das linhas */
+.lineIndex {
+  height: var(--line-height);
+  border-radius: 8px;
+  text-align: center;
+  background-color: var(--bg2-color);
+  margin: 8px;
+   /* Ocupa o espaço disponível horizontalmente */
+}
+
+.insideIndex{
+  width: 80%;
+  position: relative;
+  top: 50%;
+  left: 10%;
+  transform: translate(0, -50%);
+}
+
+.lineIndex:hover{
+  border: 4px solid white;
+}
+
+/* Estilos para tamanhos de tela menores que 768px */
+@media screen and (max-width: 768px) {
+  /* Reduza o tamanho da linha e do cabeçalho */
+  .lineIndex {
+    height: 8vw;
+  }
+
+  header {
+    padding: 8px;
+  }
+
+  footer {
+    padding: 8px;
+  }
+  #bigConteiner{
+    grid-template-columns: 1fr ;
+  }
+  #firstContent{
+    margin-top: 17%;
+  }
+}
+
+/* Estilo dos títulos */
+h1 {
+  color: var(--title-color);
+  flex: 13;
+}
+
+/* Estilo dos botões */
+button {
+  flex-grow: 0;
+}
+
+/* Estilo dos parágrafos */
+p {
+  color: var(--txt-color);
+}
+
+/* Estilo dos links */
+a {
+  color: var(--highlighted-color);
+}
+
+/* Estilo do rodapé */
+footer {
+    position: absolute; /* Rodapé sempre no final da página*/
+    bottom: 0%; /* Alinha o rodapé à parte inferior */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--cbc-color);
+    padding: 8px;
+    width: 100%;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+  }
